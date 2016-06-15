@@ -1,9 +1,7 @@
-<div class="jumbotron">
-  <img src="http://i.imgur.com/iOzRB2V.png" alt="Burning Airplanes" width="750" height="250"/>
 
 
-</div>
-<hr>
+
+<div class="container">
 <% if @current_user.present? %>
   <% if  @current_user.user_type == 0 %>
       you are an admin
@@ -23,3 +21,4 @@
 <% @planes.each do |p| %>
 <p><%=  p.name %></p>
 <% end %>
+</div>

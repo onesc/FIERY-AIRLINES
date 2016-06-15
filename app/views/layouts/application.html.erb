@@ -2,24 +2,42 @@
 <html>
 <head>
   <title>FreezingAirlines</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= link_to "Home", home_path %>
 
-  <% if @current_user.present? %>
-  CURRENTLY LOGGED IN AS <%= @current_user.email %>
-<%= link_to "Log Out", logout_path, :method => :delete %>
-  <% else %>
+<div class="container">
+  <div class="jumbotron">
 
-  <%= link_to "Log In", new_session_path %>
-  <%= link_to "Sign Up", new_user_path %>
+    <img class="header"src="http://i.imgur.com/iOzRB2V.png" alt="Burning Airplanes" width="830" height="250"/>
 
-<% end %>
+  </div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+
+          <%= link_to "Home", home_path, :class => 'button' %>
+            <% if @current_user.present? %>
+
+          <%= link_to "Log Out", logout_path, :method => :delete, :class => 'button' %>
+          CURRENTLY LOGGED IN AS <%= @current_user.email %>
+
+            <% else %>
+
+          <%= link_to "Sign Up", new_user_path, :class => 'button' %>
+
+          <% end %>
+
+
+      </div>
+    </div>
+  </nav>
+
 
 <%= yield %>
-
+</div>
 </body>
 </html>

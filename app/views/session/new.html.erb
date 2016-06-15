@@ -1,5 +1,7 @@
 <h1>Login</h1>
 
+<div class="panel panel-default">
+  <div class="panel-body login">
 <% if session[:user_id] %>
   <p><%= session[:user_id] %></p>
   <% end %>
@@ -24,3 +26,5 @@
 
   <%= submit_tag "Login" %>
 <% end %>
+</div>
+</div>
