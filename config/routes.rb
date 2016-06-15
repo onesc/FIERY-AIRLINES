@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     delete '/login' => 'session#destroy', :as => 'logout'
     root 'session#new', :as => 'home'
 
+    get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
+
   resources :session
   resources :reservations
   resources :planes

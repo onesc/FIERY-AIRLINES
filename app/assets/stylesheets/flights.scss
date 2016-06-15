@@ -1,3 +1,13 @@
 // Place all the styles related to the flights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.resSquare {
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+
+  border: 5px solid black;
+  margin: 2px;
+}
