@@ -1,5 +1,23 @@
-<h1>New Plane</h1>
+<h1>NEW PLAANE</h1>
 
-<%= render 'form' %>
+<!--  Active record will create errors for us so we can use them later -->
 
-<%= link_to 'Back', planes_path %>
+
+<%= form_for @plane do |f| %>
+  <p>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true %>
+</p>
+
+<p>
+<%= f.label :rows %>
+<%= f.number_field :rows, :required => true %>
+</p>
+
+<p>
+<%= f.label :columns%>
+<%= f.number_field :columns, :required => true %>
+</p>
+
+<%= f.submit "Submit" %>
+<% end %>
