@@ -2,7 +2,7 @@ var app = app || {};
 
 app.Reservation = Backbone.Model.extend({
 urlRoot: "/reservations",
-
+defaults: {},
 
   initialize: function(){
     // this.set("flight_id", 1);

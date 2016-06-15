@@ -24,39 +24,46 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Flights</h1>
 
-<table>
- <thead>
-   <tr>
-     <th>Flight Name</th>
-     <th>Origin</th>
-     <th>Destination</th>
-     <th>Departure</th>
-     <th>Plane</th>
-     <th colspan="3"></th>
-   </tr>
- </thead>
+<div class="panel panel-default">
+  <div class="panel-heading"><h1>Listing Flights</h1></div>
+  <div class="panel-body">
+  <!-- Table -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Flight Name</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Departure</th>
+        <th>Plane</th>
 
- <tbody>
-   <% @flights.each do |flight| %>
-     <tr>
-      <p> <td><%= link_to flight.name, flights_path(:anchor => "flight" + "/" + flight.id.to_s) %></td> </p>
+        <th colspan="3"></th>
 
-       <td><%= flight.origin %></td>
-       <td><%= flight.destination %></td>
-       <td><%= flight.departure %></td>
-       <td><%= flight.plane_id %></td>
-       <!-- <td><%= link_to 'Show', flight %></td>
+      </tr>
+    </thead>
 
-       <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
-       <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+    <tbody>
+      <% @flights.each do |flight| %>
+        <tr>
+         <p> <td><%= link_to flight.name, flights_path(:anchor => "flight" + "/" + flight.id.to_s) %></td> </p>
 
-       </td>
-     </tr>
-   <% end %>
- </tbody>
-</table>
+          <td><%= flight.origin %></td>
+          <td><%= flight.destination %></td>
+          <td><%= flight.departure %></td>
+          <td><%= flight.plane_id %></td>
+          <!-- <td><%= link_to 'Show', flight %></td>
+
+          <td><%= link_to 'Edit', edit_flight_path(flight) %></td>
+          <td><%= link_to 'Destroy', flight, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
 
 <br>
 
@@ -90,5 +97,6 @@ we aint flying
  <textarea placeholder = "Tell me all of your secrets"> </textarea>
  <button>submit</button>
 </script>
-
-<hr>
+</div>
+</div>
+</div>
