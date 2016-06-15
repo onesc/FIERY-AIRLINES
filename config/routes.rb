@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
     get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
 
+    get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
+
   resources :session
   resources :reservations
   resources :planes
