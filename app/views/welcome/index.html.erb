@@ -1,0 +1,11 @@
+<hr>
+<DIV>WELCOME BRO
+</DIV>
+<hr>
+<% if @current_user.present? %>
+  <% if  @current_user.user_type == 0 %>
+      you are an admin
+  <% else %>
+      welcome passenger
+      <% end %>
+<% end %>
