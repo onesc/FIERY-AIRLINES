@@ -14,6 +14,8 @@ class FlightsController < ApplicationController
 
   # GET /flights/new
   def new
+    authorise_admin
+    redirect_to home_path unless @authorised == true
     @flight = Flight.new
   end
 
@@ -24,7 +26,9 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
-    @flight = Flight.new(flight_params)
+    authorise_admin
+    redirect_to home_path unless @authorised == true
+    @flight = Flight.new(flight_params) unless @authorised
 
     respond_to do |format|
 
@@ -71,5 +75,16 @@ class FlightsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
     params.require(:flight).permit(:name, :departure, :origin, :destination, :plane_id)
-  end
+    end
+
+    def authorise_admin
+    @authorised = false
+      if @current_user.present?
+          if @current_user.user_type == 0
+            @authorised = true
+          end
+        end
+      return @authorised
+    end
+
 end

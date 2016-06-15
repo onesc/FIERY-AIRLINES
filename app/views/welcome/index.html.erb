@@ -13,3 +13,13 @@
       welcome passenger
   <% end %>
 <% end %>
+
+<h1>FLIGHTS</h1>
+<% @flights.each do |f| %>
+ <p><%= f.name  %></p>
+<% end %>
+
+<h1>PLANES</h1>
+<% @planes.each do |p| %>
+<p><%=  p.name %></p>
+<% end %>

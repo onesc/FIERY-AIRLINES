@@ -14,7 +14,12 @@ class PlanesController < ApplicationController
 
   # GET /planes/new
   def new
-    @plane = Plane.new
+    authorise_admin
+     if @authorised == true
+        @plane = Plane.new
+      else
+        redirect_to home_path
+      end
   end
 
   # GET /planes/1/edit
@@ -69,6 +74,16 @@ class PlanesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plane_params
-      params.fetch(:plane, {})
+    params.require(:plane).permit(:name, :rows, :columns)
+    end
+
+    def authorise_admin
+    @authorised = false
+      if @current_user.present?
+          if @current_user.user_type == 0
+            @authorised = true
+          end
+        end
+      return @authorised
     end
 end
