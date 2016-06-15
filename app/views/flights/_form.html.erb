@@ -11,6 +11,26 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :name%><br>
+    <%= f.number_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :origin %><br>
+    <%= f.text_field :origin %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :departure %><br>
+    <%= f.datetime_select :departure %>
+  </div>
+  <div class="field">
+    <%= f.label :plane_id %><br>
+    <%= f.number_field :plane_id %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
