@@ -36,6 +36,7 @@
   padding: inherit;
   font-family: 'Oswald', sans-serif;
   text-align: right;
+  text-emphasis-color: white;
 }
 
  .container {
@@ -44,12 +45,16 @@
  }
  .button {
    text-align: center;
+   background-color: white;
+   border: 3px solid black;
+   border-radius: 10%;
  }
  .login {
    text-align: right;
    max-width: 300px;
    padding: 5px;
    border: 5px solid black;
+   border-radius: 3%;
    font-family: 'Oswald', sans-serif;
  }
  .signup {
@@ -58,10 +63,12 @@
    padding: 5px;
    border: 5px solid black;
    font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
  }
  .new-flight {
    max-width: 350px;
    text-align: right;
    border: 5px solid black;
    font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
  }

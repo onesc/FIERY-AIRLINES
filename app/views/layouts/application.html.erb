@@ -19,6 +19,8 @@
 
           <%= link_to "Home", flights_path, :class => 'button' %>
             <% if @current_user.present? %>
+            <a href="#" class="button">Reservations</a>
+            <a href="#" class="button">Search flights</a>
             <%= link_to "New Flights", new_flight_path, :class => 'button' %>
               <%= link_to "Planes", planes_path, :class => 'button' %>
             <%= link_to "Log Out", logout_path, :method => :delete, :class => 'button' %>
