@@ -1,31 +1,22 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+=======READ ME======
+Fiery Airlines by Nik, Harrison & Lex~~~
+as defined by google FIERY
+--means consisting of fire or burning strongly and brightly.
+"the sun was a fiery ball low on the hills"
+synonyms:	burning, blazing, flaming, raging;
+--having the bright colour of fire.
+"the car was painted a fiery red"
+synonyms:	bright, brilliant, vivid, vibrant, intense, deep, rich, strong, bold
+"she had blushed a fiery red"
+--having a passionate and quick-tempered nature.
+"a fiery, imaginative Aries"
+synonyms:	passionate, impassioned, ardent, fervent, fervid, lively, zealous, spirited;
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
-get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
-
-get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
+We used
+Bootstrap
+JQuery
+Underscore
+Backbone
+Ruby
+Rails
