@@ -27,6 +27,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params)
 
     respond_to do |format|
+
       if @flight.save
         format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
         format.json { render :show, status: :created, location: @flight }
@@ -69,6 +70,6 @@ class FlightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
-      params.fetch(:flight, {})
-    end
+    params.require(:flight).permit(:name, :departure, :origin, :destination, :plane_id)
+  end
 end

@@ -5,7 +5,9 @@
 <% if @current_user.present? %>
   <% if  @current_user.user_type == 0 %>
       you are an admin
+        <%= link_to "Create Flight", new_flight_path %>
+          <%= link_to "Create Plane", new_plane_path %>
   <% else %>
       welcome passenger
-      <% end %>
+  <% end %>
 <% end %>
