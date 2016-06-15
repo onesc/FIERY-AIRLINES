@@ -5,11 +5,20 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
+    @flight_id = params[:id]
+    @flight = Flight.find(params[:id])
+    @myjson = @flight.to_json
+  end
+
+  def flightinfo
+    @flight = Flight.find(params[:id])
+    render :json => @flight.to_json(:include => [:plane])
   end
 
   # GET /flights/new
@@ -28,7 +37,7 @@ class FlightsController < ApplicationController
   def create
     authorise_admin
     redirect_to home_path unless @authorised == true
-    @flight = Flight.new(flight_params) unless @authorised
+    @flight = Flight.new(flight_params) if @authorised
 
     respond_to do |format|
 

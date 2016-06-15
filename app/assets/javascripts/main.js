@@ -1,17 +1,18 @@
 var app = app || {};
 
 $(document).ready(function() {
-    app.flights = new app.Flights();
-    app.flights.fetch(function() {
+    app.router = new app.AppRouter();
+    app.reservations = new app.Reservations();
+
+    Backbone.history.start();
+    app.reservations.fetch();
+
+    app.reservations.fetch(function() {
         app.reservations = new app.Reservations();
         setInterval(function() {
             app.reservations.fetch();
-        }, 1000);
+        }, 5000);
     });
 
-    app.airplanes = new app.Airplanes();
-    app.airplanes.fetch().done(function () {
-        app.router = new app.AppRouter();
-        Backbone.history.start();
-    });
+
 });
