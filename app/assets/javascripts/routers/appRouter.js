@@ -9,8 +9,8 @@ app.AppRouter = Backbone.Router.extend({
 
   index: function (){
     console.log("index method ran");
-    // var appView = new app.AppView();
-    // appView.render();
+    // var indexView = new app.IndexView({ collection: app.flights });
+    //    indexView.render();
   },
 
 
@@ -24,20 +24,17 @@ app.AppRouter = Backbone.Router.extend({
     }).done(function(data){
       var resView = new app.ReservationView();
       console.log(data);
-      resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name);
+      resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name, data.id);
     });
-
-
-    // console.log($flightData);
-
-  },
-
-  dinov: function(flight, row, column, user) {
-    console.log("err");
-    console.log("flight number :" + flight);
-    console.log("row number :" + row);
-    console.log("column number " + column);
-    console.log("dinch");
   }
+
+
+  // showFlight: function(id) {
+  //    var indexView = new app.FlightView({ collection: app.flights });
+  //
+  //    flight = // get the flight from the server
+  //    indexView.render(flight);
+  //  }
+
 
 });
