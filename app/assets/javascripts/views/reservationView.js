@@ -1,11 +1,37 @@
 var app = app || {};
 
 app.ReservationView = Backbone.View.extend({
+
+
   tagname:'li',
   el: "#main",
   render: function(name, origin, destination, departure, row, column, plane, flight_id) {
 
 
+
+
+    clearInterval(getReservations);
+    getReservations = setInterval(function(){
+      app.reservations.fetch();
+
+      reservedSeats = [];
+      _.each(app.reservations.where({flight_id: flight_id}), function(s){
+        resSeat = [s.attributes.column_number, s.attributes.row_number];
+        reservedSeats.push(resSeat);
+      });
+
+        _.each($('.resSquare'), function(r) {
+          // console.log($(r).attr("row") +','+ $(r).attr("column"));
+          row = parseInt($(r).attr("row"));
+          column = parseInt($(r).attr("column"));
+
+                  _.each(reservedSeats, function(rs) {
+                    if ((rs[0] === column) && (rs[1] === row)) {
+                        $(r).html("TAKEN");
+                  }
+          });
+        });
+    }, 1000);
 
   var appViewTemplate = $("#appViewTemplate").html();
    $("#reservationsViewTemplate").html(appViewTemplate);
@@ -52,19 +78,21 @@ app.ReservationView = Backbone.View.extend({
       resExists = true;
       console.log("that already exists bro");
     }
+
+    var makeRes = function(){
+      newRes = new app.Reservation();
+      newRes.set("row_number", row);
+      newRes.set("column_number", column);
+      newRes.set("flight_id", flight_id);
+      newRes.set("user_id", window.currentUser.id);
+      newRes.save().done(function(){
+      $(meme).html("TAKEN");
+        app.reservations.fetch();
+      });
+    };
+
       if (resExists === false) {
-
-            newRes = new app.Reservation();
-            newRes.set("row_number", row);
-            newRes.set("column_number", column);
-            newRes.set("flight_id", flight_id);
-            newRes.set("user_id", window.currentUser.id);
-            newRes.save().done(function(){
-            $(meme).html("TAKEN");
-
-
-              app.reservations.fetch();
-            });
+          setTimeout(makeRes,1000);
           }
   };
 
