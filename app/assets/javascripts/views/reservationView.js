@@ -24,11 +24,26 @@ app.ReservationView = Backbone.View.extend({
     $("#columns").html(column);
     $("#plane").html(plane);
 
-  var seats = _.range(row * column);
+    var seats = [];
+     var rows = _.range(row);
+     var columns = _.range(column);
+     _.each(rows, function (r){
+       _.each(columns, function (c) {
+         var seat = [c, r];
+         seats.push(seat);
+       });
+     });
 
-    _.each(seats, function(s){
-      $("#resBoard").append("<span class = resSquare>" + s + "</span>");
-    });
+     console.log("seats array: ", seats);
+
+
+
+       _.each(seats, function(s){
+       if (s[0] === 0) {
+         $("#resBoard").append("</br> <hr>");
+       }
+         $("#resBoard").append("<span class = resSquare>" + s + "</span>");
+       });
 
 
     // this.$el.text(this.model.toJSON().content);
