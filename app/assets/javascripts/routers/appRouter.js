@@ -8,9 +8,9 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   index: function (){
-    console.log("index method ran");
-    // var appView = new app.AppView();
-    // appView.render();
+    console.log( "You have reached the search." );
+    var indexView = new app.IndexView({ collection: app.flights });
+    indexView.render();
   },
 
 
@@ -24,6 +24,7 @@ app.AppRouter = Backbone.Router.extend({
     }).done(function(data){
       var resView = new app.ReservationView();
       console.log(data);
+      console.log("TRYING TO RENDER RESVIEW");
       resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name);
     });
 

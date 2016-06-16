@@ -4,17 +4,17 @@ app.ReservationView = Backbone.View.extend({
   tagname:'li',
   el: "#main",
   render: function(name, origin, destination, departure, row, column, plane) {
-    console.log(name + " is the flight name");
-    console.log(origin + " is origin");
-    console.log(destination + " is destination");
-    console.log(departure + " is departure");
-    console.log(row + " is rows");
-    console.log(column + " is columns");
-    console.log("AYYYY LMAO");
+    // console.log(name + " is the flight name");
+    // console.log(origin + " is origin");
+    // console.log(destination + " is destination");
+    // console.log(departure + " is departure");
+    // console.log(row + " is rows");
+    // console.log(column + " is columns");
+    // console.log("AYYYY LMAO");
 
 
     var appViewTemplate = $("#appViewTemplate").html();
-    this.$el.html(appViewTemplate);
+    $("#reservationsViewTemplate").html(appViewTemplate);
 
     $("#flightName").html(name);
     $("#flightOrigin").html(origin);
