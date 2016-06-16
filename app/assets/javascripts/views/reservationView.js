@@ -41,6 +41,7 @@ app.ReservationView = Backbone.View.extend({
  console.log(reservedSeats);
 
 
+<<<<<<< HEAD
  var user_id = window.currentUser.id;
 
 
@@ -49,6 +50,20 @@ app.ReservationView = Backbone.View.extend({
    var column = $(this).attr("column");
    var resExists;
    var meme = this;
+=======
+            newRes = new app.Reservation();
+            newRes.set("row_number", row);
+            newRes.set("column_number", column);
+            newRes.set("flight_id", flight_id);
+            newRes.set("user_id", window.currentUser.id);
+            newRes.save().done(function(){
+            $(meme).html("TAKEN");
+            $(meme).toggleClass("resSquare_2");
+              app.reservations.fetch();
+            });
+          }
+  };
+>>>>>>> b18bdd528313c5fe8907258175278e00b73daca3
 
    if (app.reservations.where({flight_id: flight_id, column_number: parseInt(column), row_number: parseInt(row)}).length === 0){
      resExists = false;
