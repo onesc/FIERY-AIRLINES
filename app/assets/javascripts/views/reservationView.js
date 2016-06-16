@@ -61,8 +61,7 @@ app.ReservationView = Backbone.View.extend({
             newRes.set("user_id", window.currentUser.id);
             newRes.save().done(function(){
             $(meme).html("TAKEN");
-
-
+            $(meme).toggleClass("resSquare_2");
               app.reservations.fetch();
             });
           }
