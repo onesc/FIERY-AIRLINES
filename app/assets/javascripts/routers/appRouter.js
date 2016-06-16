@@ -8,9 +8,15 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   index: function (){
+<<<<<<< HEAD
     console.log("index method ran");
     // var indexView = new app.IndexView({ collection: app.flights });
     //    indexView.render();
+=======
+    console.log( "You have reached the search." );
+    var indexView = new app.IndexView({ collection: app.flights });
+    indexView.render();
+>>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
   },
 
 
@@ -24,7 +30,12 @@ app.AppRouter = Backbone.Router.extend({
     }).done(function(data){
       var resView = new app.ReservationView();
       console.log(data);
+<<<<<<< HEAD
       resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name, data.id);
+=======
+      console.log("TRYING TO RENDER RESVIEW");
+      resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name);
+>>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
     });
   }
 

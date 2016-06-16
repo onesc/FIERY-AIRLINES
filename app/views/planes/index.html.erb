@@ -7,6 +7,10 @@
 
   <thead>
     <tr>
+      <th>Plane Name</th>
+      <th>Rows</th>
+      <th>Columns</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +18,9 @@
   <tbody>
     <% @planes.each do |plane| %>
       <tr>
+        <td><%= plane.name %></td>
+        <td><%= plane.rows %></td>
+        <td><%= plane.columns %></td>
         <td><%= link_to 'Show', plane %></td>
         <td><%= link_to 'Edit', edit_plane_path(plane) %></td>
         <td><%= link_to 'Destroy', plane, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -24,7 +31,7 @@
 
 <br>
 
-<%= link_to 'New Plane', new_plane_path %>
+<%= link_to 'New Plane', new_plane_path, :class => 'button' %>
 </div>
 </div>
 </div>

@@ -3,7 +3,11 @@ var app = app || {};
 app.ReservationView = Backbone.View.extend({
   tagname:'li',
   el: "#main",
+<<<<<<< HEAD
   render: function(name, origin, destination, departure, row, column, plane, flight_id) {
+=======
+  render: function(name, origin, destination, departure, row, column, plane) {
+>>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
     // console.log(name + " is the flight name");
     // console.log(origin + " is origin");
     // console.log(destination + " is destination");
@@ -14,7 +18,7 @@ app.ReservationView = Backbone.View.extend({
 
 
     var appViewTemplate = $("#appViewTemplate").html();
-    this.$el.html(appViewTemplate);
+    $("#reservationsViewTemplate").html(appViewTemplate);
 
     $("#flightName").html(name);
     $("#flightOrigin").html(origin);
@@ -24,6 +28,7 @@ app.ReservationView = Backbone.View.extend({
     $("#columns").html(column);
     $("#plane").html(plane);
 
+<<<<<<< HEAD
   var seats = [];
   var rows = _.range(row);
   var columns = _.range(column);
@@ -65,6 +70,28 @@ app.ReservationView = Backbone.View.extend({
       $reservation.click(makeRes);
       $("#resBoard").append($reservation);
     });
+=======
+    var seats = [];
+     var rows = _.range(row);
+     var columns = _.range(column);
+     _.each(rows, function (r){
+       _.each(columns, function (c) {
+         var seat = [c, r];
+         seats.push(seat);
+       });
+     });
+
+     console.log("seats array: ", seats);
+
+
+
+       _.each(seats, function(s){
+       if (s[0] === 0) {
+         $("#resBoard").append("</br> <hr>");
+       }
+         $("#resBoard").append("<span class = resSquare>" + s + "</span>");
+       });
+>>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
 
     // _.each(seats, function(s){
     // if (s[0] === 0) {

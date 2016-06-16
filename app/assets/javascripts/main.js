@@ -7,6 +7,14 @@ var app = app || {};
 
 $(document).ready(function() {
     app.router = new app.AppRouter();
+    _.templateSettings = {
+       evaluate : /\{\[([\s\S]+?)\]\}/g,
+       interpolate : /\{\{([\s\S]+?)\}\}/g
+    };
+    // app.flights = new app.Flights();
+    // app.flights.fetch().done(function () {
+    //   console.log(app.flights);
+    // });
     app.reservations = new app.Reservations();
 
     Backbone.history.start();
@@ -19,6 +27,7 @@ $(document).ready(function() {
         }, 5000);
     });
 
+<<<<<<< HEAD
 
   // app.flights = new app.Flights();
   //  app.flights.fetch().done(function () {
@@ -28,4 +37,6 @@ $(document).ready(function() {
 
 
 
+=======
+>>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
 });
