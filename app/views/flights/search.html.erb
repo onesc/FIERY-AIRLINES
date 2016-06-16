@@ -1,0 +1,48 @@
+<div id="main"></div>
+
+<script id="appViewTemplate" type="template/underscore">
+    <h1>Flights</h1>
+    <input>
+
+    <ul id="flights">
+        <li>flights go here as list items</li>
+    </ul>
+</script>
+
+<script id="searchView" type="template/underscore">
+     From: <input type="text" id="from" name="origin" >
+     To: <input type="text" id="to" name="destination">
+     <button>Search</button>
+
+     <div class="">
+       <table id="resultsTable">
+         <thead>
+           <tr>
+             <td>
+               Date
+             </td>
+             <td>
+               Flight
+             </td>
+             <td>
+               from > to
+             </td>
+             <td>
+               plane
+             </td>
+           </tr>
+         </thead>
+
+         <tbody>
+
+         </tbody>
+       </table>
+     </div>
+ </script>
+
+ <script id="flightView" type="template/underscore">
+      displaying a flight
+      <div id="flightnum">
+
+      </div>      
+  </script>

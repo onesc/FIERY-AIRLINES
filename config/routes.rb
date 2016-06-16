@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
   get '/login' => 'session#new', :as => 'login'
-    post '/login' => 'session#create'
-    delete '/login' => 'session#destroy', :as => 'logout'
-    root 'welcome#index', :as => 'home'
+  post '/login' => 'session#create'
+  delete '/login' => 'session#destroy', :as => 'logout'
+  root 'welcome#index', :as => 'home'
+  get '/search' => 'flights#search'
 
   resources :session
   resources :reservations
   resources :planes
   resources :flights
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

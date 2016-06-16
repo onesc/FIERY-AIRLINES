@@ -3,13 +3,22 @@ class FlightsController < ApplicationController
 
   # GET /flights
   # GET /flights.json
+
   def index
+    from = params[:from]
+    to = params[:to]
     @flights = Flight.all
+    @flights = @flights.where(origin: from) if from
+    @flights = @flights.where(destination: to) if to
   end
 
   # GET /flights/1
   # GET /flights/1.json
   def show
+  end
+
+  def search
+
   end
 
   # GET /flights/new
@@ -27,18 +36,22 @@ class FlightsController < ApplicationController
   # POST /flights.json
   def create
     authorise_admin
-    redirect_to home_path unless @authorised == true
-    @flight = Flight.new(flight_params) unless @authorised
 
-    respond_to do |format|
+    if @authorised
+      @flight = Flight.new(flight_params) if @authorised
 
-      if @flight.save
-        format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
-        format.json { render :show, status: :created, location: @flight }
-      else
-        format.html { render :new }
-        format.json { render json: @flight.errors, status: :unprocessable_entity }
+      respond_to do |format|
+
+        if @flight.save
+          format.html { redirect_to @flight, notice: 'Flight was successfully created.' }
+          format.json { render :show, status: :created, location: @flight }
+        else
+          format.html { render :new }
+          format.json { render json: @flight.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to home_path
     end
   end
 
