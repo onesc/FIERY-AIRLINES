@@ -28,6 +28,14 @@ app.ReservationView = Backbone.View.extend({
     });
   });
 
+  reservedSeats = [];
+  _.each(app.reservations.where({flight_id: flight_id}), function(s){
+    resSeat = [s.attributes.column_number, s.attributes.row_number];
+    reservedSeats.push(resSeat);
+  });
+
+  console.log(reservedSeats);
+
 
   var user_id = window.currentUser.id;
 
@@ -36,6 +44,7 @@ app.ReservationView = Backbone.View.extend({
     var row = $(this).attr("row");
     var column = $(this).attr("column");
     var resExists;
+    var meme = this;
 
     if (app.reservations.where({flight_id: flight_id, column_number: parseInt(column), row_number: parseInt(row)}).length === 0){
       resExists = false;
@@ -44,44 +53,40 @@ app.ReservationView = Backbone.View.extend({
       console.log("that already exists bro");
     }
       if (resExists === false) {
+
             newRes = new app.Reservation();
             newRes.set("row_number", row);
             newRes.set("column_number", column);
             newRes.set("flight_id", flight_id);
             newRes.set("user_id", window.currentUser.id);
             newRes.save().done(function(){
+            $(meme).html("TAKEN");
+
+
               app.reservations.fetch();
             });
           }
   };
 
 
+
+
     _.each(seats, function(s){
       // this.newRes = new app.Reservation("row_number", s[1], "column_number", s[0]);
+      if (s[0] === 0) {
+        $("#resBoard").append("</br> <hr>");
+      }
+      $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + "PICK ME!" +  "</span>");
 
-    if (s[0] === 0) {
-      $("#resBoard").append("</br> <hr>");
-    }
-      var $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + this.newRes + s + "</span>");
+        _.each(reservedSeats, function(rs) {
+          if ((rs[0] === s[0]) && (rs[1] === s[1])) {
+          $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + "TAKEN" + "</span>");
+        }
+        });
+
       $reservation.click(checkRes);
       $("#resBoard").append($reservation);
     });
-
-    // _.each(seats, function(s){
-    // if (s[0] === 0) {
-    //   $("#resBoard").append("</br> <hr>");
-    // }
-    //   $("#resBoard").append("<span class = resSquare>" +
-    //   s +
-    //   "<%= form_for Reservation.new do |f| %> <%= hidden_field_tag(:row_number, "+ s[1] +
-    //   ")%> <%= hidden_field_tag(:column_number, "+ s[0] +
-    //   ")%> <%= hidden_field_tag(:user_id, session[:user_id]) %> <%= f.submit 'Reserve' %>" +
-    //   "</span>");
-    // });
-
-
-    // this.$el.text(this.model.toJSON().content);
-    // this.$el.prependTo("#secrets");
   },
 });
 // var app = app || {};
