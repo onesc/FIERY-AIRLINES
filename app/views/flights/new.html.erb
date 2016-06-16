@@ -23,7 +23,12 @@
 
 <p>
  <%= f.label :departure %>
- <%= f.datetime_field :departure, :required => true %>
+ <%= f.datetime_field :departure, :id => 'datepicker', :required => true %>
+ <script>
+  $(document).ready(function() {
+    $("#datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
+  });
+</script>
 </p>
 
 <% plane_array = [] %>

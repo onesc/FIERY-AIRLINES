@@ -18,7 +18,7 @@
  @import "bootstrap";
 
 
- .jumbotron {
+.jumbotron {
    margin: 0 auto;
    text-align: center;
    background-color: black;
@@ -62,7 +62,7 @@
 }
  .login {
    text-align: right;
-   max-width: 300px;
+   max-width: 350px;
    padding: 5px;
    border: 5px solid black;
    border-radius: 3%;
@@ -79,6 +79,11 @@
  .new-flight {
    max-width: 350px;
    text-align: right;
+   border: 5px solid black;
+   font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
+ }
+ #reservations {
    border: 5px solid black;
    font-family: 'Oswald', sans-serif;
    border-radius: 3%;

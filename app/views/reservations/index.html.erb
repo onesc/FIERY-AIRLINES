@@ -1,20 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<div class="panel panel-default">
+  <div class="panel panel-default">
   <div class="panel-heading"><h1>Listing Reservations</h1></div>
   <div class="panel-body">
 
-
-<table>
-  <thead>
-    <tr>
+    <table class="table" id="reservations">
+      <thead>
+        <tr>
+      <th>User Id</th>
+      <th>Flight Id</th>
+      <th>Seat Row</th>
+      <th>Seat Column</th>
       <th colspan="3"></th>
-    </tr>
+      </tr>
   </thead>
 
   <tbody>
     <% @reservations.each do |reservation| %>
       <tr>
+        <td><%= reservation.user_id  %></td>
+        <td><%= reservation.flight_id%></td>
+        <td><%= reservation.row_number %></td>
+        <td><%= reservation.column_number%></td>
         <td><%= link_to 'Show', reservation %></td>
         <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
         <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,10 +29,16 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Reservation', new_reservation_path %>
+<%= link_to 'New Reservation', main_index_path, :class => 'button' %>
 </div>
 </div>
 </div>
+<!-- create_table "reservations", force: :cascade do |t|
+  t.integer  "user_id"
+  t.integer  "flight_id"
+  t.integer  "column_number"
+  t.integer  "row_number"
+  t.datetime "created_at",    null: false
+  t.datetime "updated_at",    null: false
+  t.boolean  "reserved" -->

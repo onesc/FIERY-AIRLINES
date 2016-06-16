@@ -2,10 +2,13 @@
 <html>
 <head>
   <title>FreezingAirlines</title>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
   <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 </head>
 <body>
 
@@ -17,8 +20,9 @@
   </div>
   <nav class="navbar navbar-inverse">
     <ul class="nav nav-pills">
-      <li role="presentation"><%= link_to "Home", main_index_path(:anchor => ''), :class => 'button' %></li>
+
       <% if @current_user.present? %>
+      <li role="presentation"><%= link_to "Home",  main_index_path, :class => 'button' %></li>
       <% if  @current_user.user_type == 0 %>
 
       <li role="presentation"><%= link_to "Flights", flights_path, :class => 'button' %></li>
