@@ -18,7 +18,7 @@
  @import "bootstrap";
 
 
- .jumbotron {
+.jumbotron {
    margin: 0 auto;
    text-align: center;
    background-color: black;
@@ -28,7 +28,6 @@
    margin: 0 auto;
    text-align: center;
    border-radius: 5%;
-
  }
 
 .navbar {
@@ -63,7 +62,7 @@
 }
  .login {
    text-align: right;
-   max-width: 300px;
+   max-width: 350px;
    padding: 5px;
    border: 5px solid black;
    border-radius: 3%;
@@ -84,20 +83,35 @@
    font-family: 'Oswald', sans-serif;
    border-radius: 3%;
  }
+ #reservations {
+   border: 5px solid black;
+   font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
+ }
+
+ #resultsTable {
+   border: 2px solid black;
+   font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
+ }
 
  #resBoard {
    text-align: center;
-   border: 5px solid black;
+   max-width: 920px;
    font-family: 'Oswald', sans-serif;
-   border-radius: 3%;
-   padding: 5px;
-   margin: 0 auto;
+   padding: 10px;
+   margin: auto;
 
  }
- #resultsTable {
-   border: 5px solid black;
-   font-family: 'Oswald', sans-serif;
-   border-radius: 3%;
+ .seats {
+   text-align: center;
+    border: 2px solid black;
+ }
+
+ .col-md-1 {
+   border: 2px solid black;
+   border-radius: 10%;
    padding: 5px;
    margin: 0 auto;
+   text-align: center;
  }

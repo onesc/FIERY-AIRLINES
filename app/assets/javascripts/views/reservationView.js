@@ -13,7 +13,7 @@ app.ReservationView = Backbone.View.extend({
     clearInterval(getReservations);
     getReservations = setInterval(function(){
       app.reservations.fetch();
-
+      var madd;
       reservedSeats = [];
       _.each(app.reservations.where({flight_id: flight_id}), function(s){
         resSeat = [s.attributes.column_number, s.attributes.row_number];

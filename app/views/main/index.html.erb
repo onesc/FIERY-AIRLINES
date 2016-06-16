@@ -3,29 +3,12 @@
    <% if @current_user.present? %>
      <% if  @current_user.user_type == 0 %>
          <h1>Admin User</h1>
-           <%= link_to "Create Flight", new_flight_path %>
-           <%= link_to "Create Plane", new_plane_path %>
+           <%= link_to "Create Flight", new_flight_path, :class => 'button' %>
+           <%= link_to "Create Plane", new_plane_path, :class => 'button' %>
      <% else %>
          <h1>Welcome Passenger</h1>
      <% end %>
    <% end %>
-   </div>
- <div class="panel-body">
-   <div class="row">
-     <div class="col-md-6">
-       <% if  @current_user.user_type == 0 %>
-       <h1>FLIGHTS</h1>
-     <% @flights.each do |f| %>
-      <p><%= f.name  %></p>
-     <% end %>
-     </div>
-     <div class="col-md-6">
-       <h1>PLANES</h1>
-       <% @planes.each do |p| %>
-       <p><%=  p.name %></p>
-       <% end %>
-     </div>
-     <% end %>
    </div>
 
  <script type="text/javascript">
@@ -35,8 +18,46 @@
      }
 
   </script>
-
+</div>
 <div id="main">
+
+  <script id="searchView" type="template/underscore">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+    <h2>Search Flights</h2> <br/>
+    <p>
+    From: <input type="text" id="from" name="origin" >
+    To: <input type="text" id="to" name="destination">
+    </p>
+    </div>
+
+    <div class="">
+      <table id="resultsTable" class="table">
+        <thead>
+          <tr>
+            <th>
+              Date
+            </th>
+            <th>
+              Flight
+            </th>
+            <th>
+              Flight Origin || Desitination
+            </th>
+            <th>
+              plane
+            </th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id = "reservationsViewTemplate"> </div>
  <script id="searchView" type="template/underscore">
  <div class="panel panel-default">
    <div class="panel-heading">
@@ -73,32 +94,58 @@
    </div>
 
    <div id = "reservationsViewTemplate"> </div>
+
 </script>
 </div>
 <script id="appViewTemplate" type="html/template">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Flight Name</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Departure</th>
+      <th>Plane</th>
+      <th>Rows</th>
+      <th>Columns</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-<div id="flightName">THERES NOTHING HEERE</div>
-<div id="flightOrigin"> </div>
-<div id="flightDestination"></div>
-<div id="flightDeparture"></div>
-<div id="plane"></div>
-<div id="rows"></div>
-<div id="columns"></div>
+    <td><div id="flightName"></div></td>
+    <td><div id="flightOrigin"> </div></td>
+    <td><div id="flightDestination"></div></td>
+    <td><div id="flightDeparture"></div></td>
+    <td><div id="plane"></div></td>
+    <td><div id="rows"></div></td>
+    <td><div id="columns"></div></td>
+  </tbody>
+</table>
 
-<div id="resBoard">
 
+
+<div class="row">
+<div class="panel panel-default seats">
+<div class="panel-heading">
+<h2>Choose A Seat</h2>
+</div>
+<div id="resBoard" >
+
+</div>
+</div>
 </div>
 </script>
 
 
 <script id="flightView" type="template/underscore">
+
     displaying a flight
     <div id="flightnum">
 
  <script id="resInputViewTemplate" type="html/template">
  <textarea placeholder="Reservations"></textarea>
 
- <button>Submit</button> -->
+ <button>Submit</button>
 
  </script>
 
