@@ -2,15 +2,18 @@ var app = app || {};
 
 app.AppRouter = Backbone.Router.extend({
   routes: {
+    'main': 'index',
     '': 'index',
     'reserve/:flight/:row/:column': 'dinov',
     'flight/:id': 'testFunction'
   },
 
   index: function (){
-    console.log( "You have reached the search." );
-    var indexView = new app.IndexView({ collection: app.flights });
-    indexView.render();
+    $(document).ready(function(){
+      var indexView = new app.IndexView({ collection: app.flights });
+         indexView.render();
+    });
+
   },
 
 
@@ -24,13 +27,23 @@ app.AppRouter = Backbone.Router.extend({
     }).done(function(data){
       var resView = new app.ReservationView();
       console.log(data);
-      console.log("TRYING TO RENDER RESVIEW");
-      resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name);
+      resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name, data.id);
     });
+  }
 
 
+<<<<<<< HEAD
     // console.log($flightData);
 
   }
+=======
+  // showFlight: function(id) {
+  //    var indexView = new app.FlightView({ collection: app.flights });
+  //
+  //    flight = // get the flight from the server
+  //    indexView.render(flight);
+  //  }
+
+>>>>>>> 8f1485540e3afd5087c97162767a02981d0076a3
 
 });

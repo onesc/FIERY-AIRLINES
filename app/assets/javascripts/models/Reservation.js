@@ -10,10 +10,12 @@ defaults: {
 },
 
   initialize: function(){
-  
+
     var $fuck = this;
     var $jsonData = $.getJSON(this.get("url"), function(data) {
+  console.log(data);
       return data;
+
     }).done( function(){
       if($jsonData.readyState == 4){
         $fuck.set("flight_id", $jsonData.responseJSON.flight_id);
