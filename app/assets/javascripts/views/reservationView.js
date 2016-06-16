@@ -27,7 +27,7 @@ app.ReservationView = Backbone.View.extend({
 
                   _.each(reservedSeats, function(rs) {
                     if ((rs[0] === column) && (rs[1] === row)) {
-                        $(r).html("TAKEN");
+                        $(r).toggleClass("resSquare_2");
                   }
           });
         });
@@ -86,7 +86,7 @@ app.ReservationView = Backbone.View.extend({
       newRes.set("flight_id", flight_id);
       newRes.set("user_id", window.currentUser.id);
       newRes.save().done(function(){
-      $(meme).html("TAKEN");
+      $(meme).removeClass("resSquare").addClass("resSquare_2")
         app.reservations.fetch();
       });
     };
@@ -104,11 +104,11 @@ app.ReservationView = Backbone.View.extend({
       if (s[0] === 0) {
         $("#resBoard").append("</br> <hr>");
       }
-      $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + "PICK ME!" +  "</span>");
+      $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" +  "</span>");
 
         _.each(reservedSeats, function(rs) {
           if ((rs[0] === s[0]) && (rs[1] === s[1])) {
-          $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + "TAKEN" + "</span>");
+          $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare_2>"  + "</span>");
         }
         });
 

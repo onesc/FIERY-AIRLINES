@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.resSquare {
+.resSquare_2 {
   background-image: url("../assets/empty.png");
   // background-size: calc(100vh/20);
   background-size: 50px;
@@ -16,8 +16,8 @@
   border: 1px solid grey;
   border-radius: 5px;
 }
-.resSquare_2 {
-  background-image: url("../assets/engaged.png");
+.resSquare {
+  background-image: url("../assets/engageds.png");
   // background-size: calc(100vh/20);
   background-size: 50px;
   background-repeat: no-repeat;
