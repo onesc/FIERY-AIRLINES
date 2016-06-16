@@ -6,15 +6,11 @@ defaults: {
   user_id: "",
   flight_id: "",
   column_number: "",
-  row_numer: ""
+  row_number: ""
 },
 
   initialize: function(){
-    // this.set("flight_id", 1);
-    // $.getJSON(this.get("url") [, data ] [, success ] )
-
-
-
+  
     var $fuck = this;
     var $jsonData = $.getJSON(this.get("url"), function(data) {
       return data;

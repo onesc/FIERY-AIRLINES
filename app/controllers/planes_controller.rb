@@ -15,9 +15,11 @@ class PlanesController < ApplicationController
 
   # GET /planes/new
   def new
+
     authorise_admin
      if @authorised == true
         @plane = Plane.new
+
       else
         redirect_to home_path
       end
@@ -30,13 +32,13 @@ class PlanesController < ApplicationController
   # POST /planes
   # POST /planes.json
   def create
+
     @plane = Plane.new(plane_params)
 
     respond_to do |format|
       if @plane.save
         format.html { redirect_to @plane, notice: 'Plane was successfully created.' }
         format.json { render :show, status: :created, location: @plane }
-        redirect_to planes_path
       else
         format.html { render :new }
         format.json { render json: @plane.errors, status: :unprocessable_entity }

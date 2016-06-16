@@ -4,43 +4,39 @@
 
 
 <!--  Active record will create errors for us so we can use them later -->
-<form>
-  <div class="form-group">
-    <%= form_for @flight do |f| %>
-    <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </p>
-  </div>
-  <div class="form-group">
-    <p>
-    <%= f.label :origin %>
-    <%= f.text_field :origin, :required => true %>
-    </p>
-  </div>
-  <div class="form-group">
-    <p>
-    <%= f.label :destination %>
-    <%= f.text_field :destination, :required => true %>
-    </p>
-  </div>
-  <div class="form-group">
-    <p>
-      <%= f.label :departure %>
-      <%= f.datetime_field :departure, :required => true %>
-    </p>
-  </div>
-  <% plane_array = [] %>
-    <% Plane.all.each do |p| %>
-      <% plane_array << [p.name, p.id] %>
-    <% end %>
-    <p>PLANE
-  <%= f.select :plane_id, plane_array %>
-  </p>
-  <%= f.submit "Submit" %>
-  <% end %>
 
-</form>
+<%= form_for @flight do |f| %>
+ <p>
+ <%= f.label :name %>
+ <%= f.text_field :name, :required => true %>
+</p>
+
+<p>
+<%= f.label :origin %>
+<%= f.text_field :origin, :required => true %>
+</p>
+
+<p>
+<%= f.label :destination %>
+<%= f.text_field :destination, :required => true %>
+</p>
+
+<p>
+ <%= f.label :departure %>
+ <%= f.datetime_field :departure, :required => true %>
+</p>
+
+<% plane_array = [] %>
+ <% Plane.all.each do |p| %>
+   <% plane_array << [p.name, p.id] %>
+ <% end %>
+ <p>PLANE
+<%= f.select :plane_id, plane_array %>
+</p>
+
+
+<%= f.submit "Submit" %>
+<% end %>
 
 </div>
 </div>

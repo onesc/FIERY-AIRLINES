@@ -3,29 +3,25 @@
   <div class="panel-body new-flight">
 
 <!--  Active record will create errors for us so we can use them later -->
-    <form>
-    <%= form_for @plane do |f| %>
-    <div class="form-group">
-      <p>
-      <%= f.label :name %>
-      <%= f.text_field :name, :required => true %>
-      </p>
-    </div>
-    <div class="form-group">
-      <p>
-    <%= f.label :rows %>
-    <%= f.number_field :rows, :required => true %>
-      </p>
-    </div>
-    <div class="form-group">
-      <p>
-    <%= f.label :columns%>
-    <%= f.number_field :columns, :required => true %>
-      </p>
-    </div>
-      <%= f.submit "Submit" %>
-    <% end %>
-    </form>
+
+<%= form_for @plane do |f| %>
+<p>
+<%= f.label :name %>
+<%= f.text_field :name, :required => true %>
+</p>
+
+<p>
+<%= f.label :rows %>
+<%= f.number_field :rows, :required => true %>
+</p>
+
+<p>
+<%= f.label :columns%>
+<%= f.number_field :columns, :required => true %>
+</p>
+
+<%= f.submit "Submit" %>
+<% end %>
 
 </div>
 </div>
