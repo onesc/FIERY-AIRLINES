@@ -9,6 +9,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   index: function (){
+
     $(document).ready(function(){
       var indexView = new app.IndexView({ collection: app.flights });
          indexView.render();
