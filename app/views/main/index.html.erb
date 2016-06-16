@@ -35,22 +35,13 @@
       <table id="resultsTable" class="table">
         <thead>
           <tr>
-            <th>
-              Date
-            </th>
-            <th>
-              Flight
-            </th>
-            <th>
-              Flight Origin || Desitination
-            </th>
-            <th>
-              plane
-            </th>
+            <th>Date</th>
+            <th>Flight</th>
+            <th>Flight Origin || Desitination</th>
+            <th>Plane</th>
             <th colspan="3"></th>
           </tr>
         </thead>
-
         <tbody>
 
         </tbody>
@@ -58,82 +49,46 @@
     </div>
 
     <div id = "reservationsViewTemplate"> </div>
- <script id="searchView" type="template/underscore">
- <div class="panel panel-default">
-   <div class="panel-heading">
-   From: <input type="text" id="from" name="origin" >
-   To: <input type="text" id="to" name="destination">
-
-   </div>
-
-
-   <div class="">
-     <table id="resultsTable" class="table">
-       <thead>
-         <tr>
-           <th>
-             Date
-           </th>
-           <th>
-             Flight
-           </th>
-           <th>
-             Flight Origin || Desitination
-           </th>
-           <th>
-             plane
-           </th>
-           <th colspan="3"></th>
-         </tr>
-       </thead>
-
-       <tbody>
-
-       </tbody>
-     </table>
-   </div>
-
-   <div id = "reservationsViewTemplate"> </div>
 
 </script>
 </div>
 <script id="appViewTemplate" type="html/template">
 <table class="table">
   <thead>
-    <tr>
-      <th>Flight Name</th>
-      <th>Origin</th>
-      <th>Destination</th>
-      <th>Departure</th>
-      <th>Plane</th>
-      <th>Rows</th>
-      <th>Columns</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <tr>
+          <th>Flight Name</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Departure</th>
+          <th>Plane</th>
+          <th>Rows</th>
+          <th>Columns</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <td><div id="flightName"></div></td>
+        <td><div id="flightOrigin"> </div></td>
+        <td><div id="flightDestination"></div></td>
+        <td><div id="flightDeparture"></div></td>
+        <td><div id="plane"></div></td>
+        <td><div id="rows"></div></td>
+        <td><div id="columns"></div></td>
+      </tbody>
+    </table>
 
-    <td><div id="flightName"></div></td>
-    <td><div id="flightOrigin"> </div></td>
-    <td><div id="flightDestination"></div></td>
-    <td><div id="flightDeparture"></div></td>
-    <td><div id="plane"></div></td>
-    <td><div id="rows"></div></td>
-    <td><div id="columns"></div></td>
-  </tbody>
-</table>
 
 
+    <div class="row">
+    <div class="panel panel-default seats">
+    <div class="panel-heading">
+    <h2>Choose A Seat</h2>
+    </div>
+    <div id="resBoard" >
 
-<div class="row">
-<div class="panel panel-default seats">
-<div class="panel-heading">
-<h2>Choose A Seat</h2>
-</div>
-<div id="resBoard" >
-
-</div>
-</div>
-</div>
+    </div>
+    </div>
+    </div>
 </script>
 
 

@@ -22,7 +22,7 @@
     <ul class="nav nav-pills">
 
       <% if @current_user.present? %>
-      <li role="presentation"><%= link_to "Home",  main_index_path, :class => 'button' %></li>
+      <li role="presentation"><%= link_to "Home", main_index_path, :class => 'button' %></li>
       <% if  @current_user.user_type == 0 %>
 
       <li role="presentation"><%= link_to "Flights", flights_path, :class => 'button' %></li>
