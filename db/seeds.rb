@@ -7,4 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
+Reservation.destroy_all
 User.create(email: 'admin@admin', password: 'chicken', password_confirmation: 'chicken', user_type: 0)

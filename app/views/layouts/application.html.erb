@@ -17,7 +17,7 @@
   </div>
   <nav class="navbar navbar-inverse">
     <ul class="nav nav-pills">
-      <li role="presentation"><%= link_to "Home", main_index_path, :class => 'button' %></li>
+      <li role="presentation"><%= link_to "Home", main_index_path(:anchor => ''), :class => 'button' %></li>
         <% if @current_user.present? %>
       <li role="presentation"><%= link_to "Reservations", reservations_path, :class => 'button' %></li>
       <li role="presentation"><%= link_to "Flights", flights_path, :class => 'button' %></li>
@@ -31,6 +31,8 @@
     </ul>
 
   </nav>
+
+
 
 
 <%= yield %>

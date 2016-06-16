@@ -3,22 +3,12 @@ var app = app || {};
 app.ReservationView = Backbone.View.extend({
   tagname:'li',
   el: "#main",
-<<<<<<< HEAD
   render: function(name, origin, destination, departure, row, column, plane, flight_id) {
-=======
-  render: function(name, origin, destination, departure, row, column, plane) {
->>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
-    // console.log(name + " is the flight name");
-    // console.log(origin + " is origin");
-    // console.log(destination + " is destination");
-    // console.log(departure + " is departure");
-    // console.log(row + " is rows");
-    // console.log(column + " is columns");
-    // console.log("AYYYY LMAO");
 
 
-    var appViewTemplate = $("#appViewTemplate").html();
-    $("#reservationsViewTemplate").html(appViewTemplate);
+
+  var appViewTemplate = $("#appViewTemplate").html();
+   $("#reservationsViewTemplate").html(appViewTemplate);
 
     $("#flightName").html(name);
     $("#flightOrigin").html(origin);
@@ -28,7 +18,6 @@ app.ReservationView = Backbone.View.extend({
     $("#columns").html(column);
     $("#plane").html(plane);
 
-<<<<<<< HEAD
   var seats = [];
   var rows = _.range(row);
   var columns = _.range(column);
@@ -39,24 +28,31 @@ app.ReservationView = Backbone.View.extend({
     });
   });
 
-  console.log("seats array: ", seats);
-  console.log(flight_id);
+
+  var user_id = window.currentUser.id;
 
 
-  var makeRes = function(){
-
+  var checkRes = function(){
     var row = $(this).attr("row");
     var column = $(this).attr("column");
-    newRes = new app.Reservation();
-    newRes.set("row_number", row);
-    newRes.set("column_number", column);
-    newRes.set("flight_id", flight_id);
-    newRes.save({
-      success: console.log("success"),
-      error: console.log("error")
-    }).done(function(){
-      app.reservations.fetch();
-    });
+    var resExists;
+
+    if (app.reservations.where({flight_id: flight_id, column_number: parseInt(column), row_number: parseInt(row)}).length === 0){
+      resExists = false;
+    } else {
+      resExists = true;
+      console.log("that already exists bro");
+    }
+      if (resExists === false) {
+            newRes = new app.Reservation();
+            newRes.set("row_number", row);
+            newRes.set("column_number", column);
+            newRes.set("flight_id", flight_id);
+            newRes.set("user_id", window.currentUser.id);
+            newRes.save().done(function(){
+              app.reservations.fetch();
+            });
+          }
   };
 
 
@@ -67,31 +63,9 @@ app.ReservationView = Backbone.View.extend({
       $("#resBoard").append("</br> <hr>");
     }
       var $reservation = $("<span row = " + s[1] + " column = " + s[0] + " class = resSquare>" + this.newRes + s + "</span>");
-      $reservation.click(makeRes);
+      $reservation.click(checkRes);
       $("#resBoard").append($reservation);
     });
-=======
-    var seats = [];
-     var rows = _.range(row);
-     var columns = _.range(column);
-     _.each(rows, function (r){
-       _.each(columns, function (c) {
-         var seat = [c, r];
-         seats.push(seat);
-       });
-     });
-
-     console.log("seats array: ", seats);
-
-
-
-       _.each(seats, function(s){
-       if (s[0] === 0) {
-         $("#resBoard").append("</br> <hr>");
-       }
-         $("#resBoard").append("<span class = resSquare>" + s + "</span>");
-       });
->>>>>>> 58e479b8cdc6ad1b7e3c4bdfe160109854c0188c
 
     // _.each(seats, function(s){
     // if (s[0] === 0) {
