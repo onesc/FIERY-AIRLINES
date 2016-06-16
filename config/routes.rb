@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root 'session#new', :as => 'home'
 
     get '/flightinfo/:id' => 'flights#flightinfo', :as =>'flightinfo'
-
+  resources :main
   resources :session
   resources :reservations
   resources :planes
