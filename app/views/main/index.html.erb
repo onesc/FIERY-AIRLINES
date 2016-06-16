@@ -1,27 +1,37 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @current_user.present? %>
+      <% if  @current_user.user_type == 0 %>
+          <h1>Admin User</h1>
+            <%= link_to "Create Flight", new_flight_path %>
+            <%= link_to "Create Plane", new_plane_path %>
+      <% else %>
+          <h1>Welcome Passenger</h1>
+      <% end %>
+    <% end %>
+    </div>
+  <div class="panel-body">
 
-<div class="container">
-<% if @current_user.present? %>
-  <% if  @current_user.user_type == 0 %>
-      you are an admin
-        <%= link_to "Create Flight", new_flight_path %>
-          <%= link_to "Create Plane", new_plane_path %>
-  <% else %>
-      welcome passenger
+<div class="row">
+  <div class="col-md-6">
+    <h1>FLIGHTS</h1>
+  <% @flights.each do |f| %>
+   <p><%= f.name  %></p>
   <% end %>
-<% end %>
+  </div>
+  <div class="col-md-6">
+    <h1>PLANES</h1>
+    <% @planes.each do |p| %>
+    <p><%=  p.name %></p>
+    <% end %>
+  </div>
 
-<h1>FLIGHTS</h1>
-<% @flights.each do |f| %>
- <p><%= f.name  %></p>
-<% end %>
-
-<h1>PLANES</h1>
-<% @planes.each do |p| %>
-<p><%=  p.name %></p>
-<% end %>
 </div>
 <div id="main">
   our app goes here.
+</div>
+</div>
+</div>
 </div>
 <script id="appViewTemplate" type="html/template">
 <h1>App View</h1>

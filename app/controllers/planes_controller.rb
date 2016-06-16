@@ -36,11 +36,13 @@ class PlanesController < ApplicationController
       if @plane.save
         format.html { redirect_to @plane, notice: 'Plane was successfully created.' }
         format.json { render :show, status: :created, location: @plane }
+        redirect_to planes_path
       else
         format.html { render :new }
         format.json { render json: @plane.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /planes/1

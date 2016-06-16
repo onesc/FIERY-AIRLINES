@@ -36,7 +36,6 @@
   padding: inherit;
   font-family: 'Oswald', sans-serif;
   text-align: right;
-  text-emphasis-color: white;
 }
 
  .container {
@@ -46,9 +45,21 @@
  .button {
    text-align: center;
    background-color: white;
-   border: 3px solid black;
+   border: 3px solid orange;
+   text-decoration: none;
+   font-family: 'Oswald', sans-serif;
+   display: inline-block;
    border-radius: 10%;
  }
+ .button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: red;
+    color: white;
+}
  .login {
    text-align: right;
    max-width: 300px;
