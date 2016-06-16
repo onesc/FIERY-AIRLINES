@@ -32,18 +32,5 @@ app.AppRouter = Backbone.Router.extend({
   }
 
 
-<<<<<<< HEAD
-    // console.log($flightData);
-
-  }
-=======
-  // showFlight: function(id) {
-  //    var indexView = new app.FlightView({ collection: app.flights });
-  //
-  //    flight = // get the flight from the server
-  //    indexView.render(flight);
-  //  }
-
->>>>>>> 8f1485540e3afd5087c97162767a02981d0076a3
 
 });

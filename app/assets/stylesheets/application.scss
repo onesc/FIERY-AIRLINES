@@ -28,7 +28,6 @@
    margin: 0 auto;
    text-align: center;
    border-radius: 5%;
-
  }
 
 .navbar {
@@ -85,26 +84,28 @@
    border-radius: 3%;
  }
 
- #resBoard {
-   text-align: center;
-   max-width: 800px;
-   border: 5px solid black;
-   font-family: 'Oswald', sans-serif;
-   border-radius: 3%;
-   display: inline-block;
-  //  padding: 20px;
-  //  margin: 0 auto;
-
- }
  #resultsTable {
    border: 2px solid black;
    font-family: 'Oswald', sans-serif;
    border-radius: 3%;
  }
 
+ #resBoard {
+   text-align: center;
+   max-width: 920px;
+   font-family: 'Oswald', sans-serif;
+   padding: 10px;
+   margin: auto;
+
+ }
+ .seats {
+   text-align: center;
+    border: 2px solid black;
+ }
+
  .col-md-1 {
    border: 2px solid black;
-   border-radius: 3%;
+   border-radius: 10%;
    padding: 5px;
    margin: 0 auto;
    text-align: center;
