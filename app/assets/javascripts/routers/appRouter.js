@@ -19,6 +19,7 @@ app.AppRouter = Backbone.Router.extend({
 
 
   testFunction: function(id){
+    clearInterval(getReservations);
     console.log("OMG FLIGHT PAGE " + id);
     var $flightInfo;
     var flightUrl = "flightinfo/" + id;
@@ -26,11 +27,8 @@ app.AppRouter = Backbone.Router.extend({
       return data;
     }).done(function(data){
       var resView = new app.ReservationView();
-      console.log(data);
       resView.render(data.name, data.origin, data.destination, data.departure, data.plane.rows, data.plane.columns, data.plane.name, data.id);
     });
   }
-
-
 
 });
