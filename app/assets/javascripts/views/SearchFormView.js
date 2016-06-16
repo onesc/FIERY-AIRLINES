@@ -9,19 +9,19 @@
 //
 //     searchFlight: function(event) {
 //         event.preventDefault();
-//         var flightFrom = this.$el.find("#from").val();
-//         var flightTo = this.$el.find("#to").val();
+//         var flightFrom = this.$el.find("#origin").val();
+//         var flightTo = this.$el.find("#destination").val();
 //         if (flightOrigin.length === 0 && flightDestination === 0) {
 //             return;
 //         }
 //
-//         var resultSet = app.flights.where({ from: flightfrom, to: flightTo });
+//         var resultSet = app.flights.where({ from: flightOrigin, to: flightDestination });
 //
 //         $("#searchResults").empty();
 //
 //
 //         $("#searchResults").addClass("searchResults");
-//         var tableHeaders = "<tr><th>Plane Number</th><th>Flight Number</th><th>From</th><th>To</th><th>Date</th></tr>";
+//         var tableHeaders = "<tr><th>Plane Name</th><th>Flight Number</th><th>From</th><th>To</th><th>Date</th></tr>";
 //         $("#searchResults").append(tableHeaders);
 //
 //         _.each(resultSet, function(flight) {

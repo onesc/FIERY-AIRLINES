@@ -2,7 +2,12 @@ var app = app || {};
 
 app.Reservation = Backbone.Model.extend({
 urlRoot: "/reservations",
-defaults: {},
+defaults: {
+  user_id: "",
+  flight_id: "",
+  column_number: "",
+  row_numer: ""
+},
 
   initialize: function(){
     // this.set("flight_id", 1);
@@ -25,3 +30,9 @@ defaults: {},
     console.log("A new reservation was created");
   }
 });
+
+// create_table :reservations do |t|
+//   t.belongs_to :user, index: true
+//   t.belongs_to :flight, index: true
+//   t.integer :column_number
+//   t.integer :row_number
