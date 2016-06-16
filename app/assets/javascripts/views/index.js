@@ -41,7 +41,7 @@ app.IndexView = Backbone.View.extend({
 
      var flights = _.filter(app.flights.models, function(flight) {
        flight = flight.toJSON();
-       return flight.origin.startsWith(origin) && flight.destination.startsWith(destination);
+       return flight.origin.toLowerCase().startsWith(origin.toLowerCase()) && flight.destination.toLowerCase().startsWith(destination.toLowerCase());
      });
 
      updateTable(flights);

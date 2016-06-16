@@ -42,7 +42,7 @@ app.ReservationView = Backbone.View.extend({
        if (s[0] === 0) {
          $("#resBoard").append("</br> <hr>");
        }
-         $("#resBoard").append("<span class = resSquare>" + s + "</span>");
+         $("#resBoard").append("<div class = col-md-1>" + s + "</div>");
        });
 
 

@@ -31,14 +31,6 @@ app.AppRouter = Backbone.Router.extend({
 
     // console.log($flightData);
 
-  },
-
-  dinov: function(flight, row, column, user) {
-    console.log("err");
-    console.log("flight number :" + flight);
-    console.log("row number :" + row);
-    console.log("column number " + column);
-    console.log("dinch");
   }
 
 });

@@ -87,17 +87,25 @@
 
  #resBoard {
    text-align: center;
+   max-width: 800px;
    border: 5px solid black;
    font-family: 'Oswald', sans-serif;
    border-radius: 3%;
-   padding: 5px;
-   margin: 0 auto;
+   display: inline-block;
+  //  padding: 20px;
+  //  margin: 0 auto;
 
  }
  #resultsTable {
-   border: 5px solid black;
+   border: 2px solid black;
    font-family: 'Oswald', sans-serif;
+   border-radius: 3%;
+ }
+
+ .col-md-1 {
+   border: 2px solid black;
    border-radius: 3%;
    padding: 5px;
    margin: 0 auto;
+   text-align: center;
  }
