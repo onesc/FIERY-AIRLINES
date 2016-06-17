@@ -86,7 +86,7 @@ app.ReservationView = Backbone.View.extend({
       newRes.set("flight_id", flight_id);
       newRes.set("user_id", window.currentUser.id);
       newRes.save().done(function(){
-      $(meme).removeClass("resSquare").addClass("resSquare_2")
+      $(meme).removeClass("resSquare").addClass("resSquare_2");
         app.reservations.fetch();
       });
     };

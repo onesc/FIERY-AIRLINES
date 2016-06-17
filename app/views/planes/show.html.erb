@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading"><p id="notice"><%= notice %></p></div>
+  <div class="panel-body">
+    <p>
+      <strong>Plane Name:</strong>
+      <%= @plane.name %>
+    </p>
 
-<%= link_to 'Edit', edit_plane_path(@plane) %> |
-<%= link_to 'Back', planes_path %>
+    <p>
+      <strong>Rows</strong>
+      <%= @plane.rows %>
+    </p>
+
+    <p>
+      <strong>Columns</strong>
+      <%= @plane.columns %>
+    </p>
+
+<%= link_to 'Edit', edit_plane_path(@plane), :class => 'button' %> |
+<%= link_to 'Back', planes_path, :class => 'button' %>
+</div>
+</div>
