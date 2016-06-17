@@ -22,9 +22,9 @@
         <td><%= reservation.row_number %></td>
         <td><%= reservation.column_number%></td>
         <% if  @current_user.user_type == 0 %>
-        <td><%= link_to 'Show', reservation %></td>
-        <td><%= link_to 'Edit', edit_reservation_path(reservation) %></td>
-        <td><%= link_to 'Destroy', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', reservation, :class => 'button' %></td>
+        <td><%= link_to 'Edit', edit_reservation_path(reservation), :class => 'button' %></td>
+        <td><%= link_to 'Destroy', reservation, :class => 'button', method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>
